@@ -1,7 +1,7 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    branch = 'master',
+    version = 'v0.10.0',
     lazy = false,
     build = ':TSUpdate',
     dependencies = {

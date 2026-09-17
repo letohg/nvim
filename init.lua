@@ -77,6 +77,10 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
+  {
+    'LetoHG/zig-tools.nvim',
+    url = 'git@github.com:LetoHG/zig-tools.nvim.git',
+  },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
