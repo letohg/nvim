@@ -34,9 +34,9 @@ return {
         --       ${variant:xx}
         cmake_build_directory = function()
           if osys.iswin32 then
-            return 'build\\${variant:buildType}'
+            return 'build\\${kit}\\${variant:buildType}'
           end
-          return 'build/${variant:buildType}'
+          return 'build/${kit}/${variant:buildType}'
         end, -- this is used to specify generate directory for cmake, allows macro expansion, can be a string or a function returning the string, relative to cwd.
         cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
         cmake_compile_commands_from_lsp = false, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
@@ -198,6 +198,7 @@ return {
       vim.keymap.set('n', '<leader>ck', ':CMakeSelectKit<CR>', { silent = true })
       vim.keymap.set('n', '<leader>cm', ':CMakeSelectBuildType<CR>', { silent = true })
       vim.keymap.set('n', '<leader>cg', ':CMakeGenerate<CR>', { silent = true })
+      vim.keymap.set('n', '<leader>ci', ':CMakeInstall<CR>', { silent = true })
 
       vim.keymap.set('n', '<leader>cla', ':CMakeLaunchArgs ', { silent = true })
       vim.keymap.set('n', '<leader>clt', ':CMakeSelectLaunchTarget<CR>', { silent = true })
@@ -212,6 +213,8 @@ return {
       vim.keymap.set('n', '<leader>cor', ':CMakeOpenRunner<CR>', { silent = true })
       vim.keymap.set('n', '<leader>cce', ':CMakeCloseExecutor<CR>', { silent = true })
       vim.keymap.set('n', '<leader>ccr', ':CMakeCloseRunner<CR>', { silent = true })
+
+      vim.keymap.set('n', 'gh', ':LspClangdSwitchSourceHeader<CR>', { silent = true, desc = 'Switch between source and header file' })
 
       vim.api.nvim_create_user_command('CMakeQueueBuild', function(opts)
         if #opts.fargs == 0 then

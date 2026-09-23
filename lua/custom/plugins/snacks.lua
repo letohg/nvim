@@ -34,8 +34,8 @@ return {
           explorer = {
             layout = {
               layout = {
-                position = 'right', -- <-- move it to the right
-                -- width = 30, -- optional: adjust width
+                position = 'left', -- <-- move it to the right
+                width = 45, -- optional: adjust width
               },
               preset = 'sidebar',
             },
@@ -188,7 +188,7 @@ return {
       {
         '<leader>sw',
         function()
-          require('snacks').picker.grep_word()
+          require('snacks').picker.grep_word { layout = 'ivy' }
         end,
         desc = '[S]earch current [W]ord',
         mode = { 'n', 'x' },

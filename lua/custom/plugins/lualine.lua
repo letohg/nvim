@@ -34,7 +34,7 @@ return {
 
     require('lualine').setup {
       options = {
-        theme = require('catppuccin.utils.lualine')(),
+        theme = require 'catppuccin.utils.lualine'(),
         component_separators = '',
         section_separators = { left = '', right = '' },
         -- section_separators = { left = '', right = '' },

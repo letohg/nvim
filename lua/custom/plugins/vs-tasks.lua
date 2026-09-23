@@ -5,6 +5,11 @@ return {
   },
   {
     'EthanJWright/vs-tasks.nvim',
+    -- vs-tasks.nvim ships a stub `lua/telescope/_extensions/init.lua` that
+    -- shadows telescope's real module (breaking `telescope.load_extension`).
+    -- Telescope extensions must only ship `lua/telescope/_extensions/<name>.lua`,
+    -- so delete the stub on every install/update.
+    build = 'rm -f lua/telescope/_extensions/init.lua',
     dependencies = {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
