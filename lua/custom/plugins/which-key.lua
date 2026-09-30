@@ -56,6 +56,7 @@ return {
         { '<leader>d', group = '[D]ebug' },
         { '<leader>t', group = '[T]est' },
         { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
+        { '<leader>gd', group = 'Git: [D]iffview' },
         { '<leader>gc', group = 'Git: [C]reate', mode = { 'n', 'v' } },
         { '<leader>gs', group = 'Git: [S]witch', mode = { 'n', 'v' } },
         { '<leader>gb', group = 'Git: [B]lame', mode = { 'n', 'v' } },

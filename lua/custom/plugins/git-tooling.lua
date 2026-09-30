@@ -12,6 +12,35 @@ return {
     config = true,
   },
   {
+    'sindrets/diffview.nvim',
+    keys = {
+      { '<leader>gdo', '<cmd>DiffviewOpen<cr>', desc = 'Git: Open Diffview' },
+      { '<leader>gdc', '<cmd>DiffviewClose<cr>', desc = 'Git: Close Diffview' },
+      { '<leader>gdf', '<cmd>DiffviewFileHistory %<cr>', desc = 'Git: Current file history' },
+      {
+        '<leader>gdb',
+        function()
+          require('snacks').picker.git_branches {
+            all = true,
+            layout = 'select',
+            confirm = function(picker, item)
+              picker:close()
+              if not item then
+                return
+              end
+              if not item.branch then
+                vim.notify('Selected ref is not a branch', vim.log.levels.ERROR)
+                return
+              end
+              vim.cmd.DiffviewOpen { args = { item.branch .. '...HEAD' } }
+            end,
+          }
+        end,
+        desc = 'Git: Diff branch against HEAD',
+      },
+    },
+  },
+  {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {

@@ -43,6 +43,15 @@ return {
 
       -- Easy navigation with [ and ] prefix (e.g ]b)
       require('mini.bracketed').setup()
+      for lhs, direction in pairs { ['[c'] = 'backward', [']c'] = 'forward' } do
+        vim.keymap.set('n', lhs, function()
+          if vim.wo.diff then
+            vim.cmd.normal { vim.v.count1 .. lhs, bang = true }
+          else
+            MiniBracketed.comment(direction)
+          end
+        end, { desc = 'Diff hunk or comment ' .. direction })
+      end
     end,
   },
 

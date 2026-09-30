@@ -32,6 +32,18 @@ return {
         enabled = true,
         sources = {
           explorer = {
+            win = {
+              list = {
+                keys = {
+                  ['<c-j>'] = function()
+                    require('nvim-tmux-navigation').NvimTmuxNavigateDown()
+                  end,
+                  ['<c-k>'] = function()
+                    require('nvim-tmux-navigation').NvimTmuxNavigateUp()
+                  end,
+                },
+              },
+            },
             layout = {
               layout = {
                 position = 'left', -- <-- move it to the right

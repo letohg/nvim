@@ -31,10 +31,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<A-h>', '<C-w><C-<>', { desc = 'Decrease window width' })
-vim.keymap.set('n', '<A-l>', '<C-w><C->>', { desc = 'Increase window width' })
-vim.keymap.set('n', '<A-j>', '<C-w><C-->', { desc = 'Decrease window hight' })
-vim.keymap.set('n', '<A-k>', '<C-w><C-+>', { desc = 'Increase window hight' })
+vim.keymap.set('n', '<A-h>', '<cmd>vertical resize -5<cr>', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<A-l>', '<cmd>vertical resize +5<cr>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<A-j>', '<cmd>resize -5<cr>', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<A-k>', '<cmd>resize +5<cr>', { desc = 'Increase window height' })
 
 vim.keymap.set('n', '<leader>ws', function()
   require('persistence').save()
