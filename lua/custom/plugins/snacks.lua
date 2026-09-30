@@ -122,7 +122,7 @@ return {
     -- NOTE: Keymaps
     keys = {
       {
-        '<leader>lg',
+        '<leader>gg',
         function()
           require('snacks').lazygit()
         end,
