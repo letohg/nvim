@@ -59,3 +59,6 @@ end, { desc = 'Load last session' })
 vim.keymap.set('n', '<leader>wd', function()
   require('persistence').stop()
 end, { desc = 'Stop sessions saving' })
+
+-- vim.keymap.set('n', '<leader>ze', ':Copilot enable<cr>', { desc = 'Copilot: Enable Suggestions' })
+-- vim.keymap.set('n', '<leader>zd', ':Copilot disable<cr>', { desc = 'Copilot: Disable Suggestions' })

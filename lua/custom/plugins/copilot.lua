@@ -6,6 +6,10 @@ return {
     'github/copilot.vim',
     event = 'InsertEnter',
     enabled = copilot_enabled,
+    keys = {
+      { '<leader>ze', '<cmd>Copilot enable<cr>', mode = 'n', desc = 'Copilot: Enable Suggestions' },
+      { '<leader>zd', '<cmd>Copilot disable<cr>', mode = 'n', desc = 'Copilot: Disable Suggestions' },
+    },
   },
   {
     'CopilotC-Nvim/CopilotChat.nvim',
