@@ -209,7 +209,6 @@ return {
           semanticTokens = true,
         },
         -- pyright = {},
-        rust_analyzer = {},
         zls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -256,7 +255,9 @@ return {
 
       require('mason-lspconfig').setup {
         ensure_installed = ensure_installed,
-        automatic_enable = true,
+        automatic_enable = {
+          exclude = { 'rust_analyzer' },
+        },
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
